@@ -7,8 +7,8 @@
 - [x] Una landing page con dei film forniti da un API
 - [x] Utilizzare React-router-dom
 - [x] Creare una pagina dettaglio del film
-- [ ] Aggiungere Redux per lo state-management
-- [ ] Possibilità di aggiungere il film al carrello
+- [x] Aggiungere Redux per lo state-management
+- [x] Possibilità di aggiungere/rimuovere uno o più film dalla wishlist
 
 ## EXTRA
 

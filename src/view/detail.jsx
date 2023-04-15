@@ -1,13 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import placeHolder from '../../public/placeholder-image.jpg';
+import placeHolder from '../public/placeholder-image.jpg';
 import { HeartIcon } from '@heroicons/react/24/solid';
 import Header from '../components/header';
+import { useDispatch } from 'react-redux';
+import { addToWishList } from '../app/features/counter/wishSlice';
 
 export default function Detail() {
   const navigate = useNavigate();
   const { id } = useParams();
   const [info, setInfo] = useState({});
+
+  const dispatch = useDispatch();
+
+  const addItemToWishList = () => {
+    dispatch(addToWishList(JSON.stringify(info)));
+  };
+
   useEffect(() => {
     const options = {
       method: 'GET',
@@ -22,7 +31,7 @@ export default function Detail() {
       .then((response) => setInfo(response.d[0]))
       .catch((err) => console.error(err));
   }, []);
-  console.log(id);
+  //   console.log(id);
   return (
     <>
       <Header />
@@ -45,7 +54,10 @@ export default function Detail() {
             >
               back
             </button>
-            <button className="p-1 px-2 rounded-md bg-red-600 text-center flex justify-between">
+            <button
+              onClick={() => addItemToWishList()}
+              className="p-1 px-2 rounded-md bg-red-600 text-center flex justify-between"
+            >
               Add
               <HeartIcon className="mt-[2px] ml-2 w-5 h-5" />
             </button>

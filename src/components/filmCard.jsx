@@ -1,11 +1,27 @@
 import React, { useEffect, useState } from 'react';
 import { HeartIcon } from '@heroicons/react/24/solid';
-import placeHolder from '../../public/placeholder-image.jpg';
-import { Link } from 'react-router-dom';
+import placeHolder from '../public/placeholder-image.jpg';
+import { Link, useLocation } from 'react-router-dom';
+import {
+  addToWishList,
+  removeToWishList,
+} from '../app/features/counter/wishSlice';
+import { useDispatch } from 'react-redux';
 
 function FilmCard({ props }) {
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState({});
+  const dispatch = useDispatch();
+  const { pathname } = useLocation();
+
+  const removeItemToWishList = () => {
+    dispatch(removeToWishList(JSON.stringify(data)));
+  };
+
+  const addItemToWishList = () => {
+    dispatch(addToWishList(JSON.stringify(data)));
+  };
+
   useEffect(() => {
     setData(props);
     setIsLoading(false);
@@ -15,7 +31,7 @@ function FilmCard({ props }) {
     return <div className="text-center bg-red-600">Loading</div>;
   } else {
     return (
-      <div className="p-3 shadow-sm rounded-md bg-gray-400 ">
+      <div className="p-2 shadow-sm rounded-md bg-gray-400 ">
         <div className="relative h-48">
           <img
             className="absolute h-full w-full object-contain"
@@ -27,10 +43,22 @@ function FilmCard({ props }) {
           {data.l}
         </p>
         <div className="flex justify-evenly">
-          <button className=" p-1 px-2 rounded-md bg-yellow-200 text-center">
-            <Link to={`/detail/${data.id}`}>Info</Link>
-          </button>
-          <button className="p-1 px-2 rounded-md bg-red-600 text-center flex justify-between">
+          {pathname == '/wishlist' ? (
+            <button
+              onClick={() => removeItemToWishList()}
+              className="p-1 px-2 rounded-md bg-red-600 text-center flex justify-between"
+            >
+              Remove
+            </button>
+          ) : (
+            <button className=" p-1 px-2 rounded-md bg-yellow-200 text-center">
+              <Link to={`/detail/${data.id}`}>Info</Link>
+            </button>
+          )}
+          <button
+            onClick={() => addItemToWishList()}
+            className="p-1 px-2 rounded-md bg-pink-600 text-center flex justify-between"
+          >
             Add
             <HeartIcon className="mt-[2px] ml-2 w-5 h-5" />
           </button>
