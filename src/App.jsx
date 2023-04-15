@@ -22,11 +22,14 @@ function App() {
       .then((response) => setFilms(response.d))
       .catch((err) => console.error(err));
   }, []);
-  console.log(films);
+  // console.log(films);
   return (
     <main>
       <Header />
-      {films && films.map((film, idx) => <FilmCard key={idx} props={film} />)}
+
+      <div className="grid p-2 grid-cols-2 gap-2">
+        {films && films.map((film, idx) => <FilmCard key={idx} props={film} />)}
+      </div>
     </main>
   );
 }
