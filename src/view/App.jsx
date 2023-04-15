@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import Header from './components/header';
-import FilmCard from './components/filmCard';
+import Header from '../components/header';
+import FilmCard from '../components/filmCard';
 
 function App() {
   const [films, setFilms] = useState([]);

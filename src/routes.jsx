@@ -1,6 +1,7 @@
 import { createBrowserRouter } from 'react-router-dom';
-import App from './App';
-import WishList from './wishList';
+import App from './view/App';
+import WishList from './view/wishList';
+import Detail from './view/detail';
 
 const router = createBrowserRouter([
   {
@@ -10,6 +11,10 @@ const router = createBrowserRouter([
   {
     path: '/wishlist',
     element: <WishList />,
+  },
+  {
+    path: '/detail/:id',
+    element: <Detail />,
   },
 ]);
 
