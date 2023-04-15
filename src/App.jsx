@@ -1,5 +1,12 @@
+import Header from './components/header';
+
 function App() {
-  return <main className="bg-red-300">Ciao Mondo!</main>;
+  return (
+    <main>
+      {/* //? Navbar */}
+      <Header />
+    </main>
+  );
 }
 
 export default App;
