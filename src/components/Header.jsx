@@ -3,7 +3,7 @@ import { FilmIcon } from '@heroicons/react/24/outline';
 
 export default function Header() {
   return (
-    <div className="bg-zinc-300 flex justify-between items-center py-3 px-6 ">
+    <div className="bg-zinc-300 flex justify-between items-center py-3 px-6">
       <div>
         <p className="text-xl font-semibold">VideoTeca</p>
       </div>
