@@ -10,7 +10,7 @@
 - [x] Aggiungere Redux per lo state-management
 - [x] Possibilità di aggiungere uno o più film dalla wishlist
 - [ ] Possibilità di rimuovere uno o più film dalla wishlist
-- [ ] Aggiungere un Toast message per una UX migliore
+- [x] Aggiungere un Toast message per una UX migliore
 
 ## EXTRA
 

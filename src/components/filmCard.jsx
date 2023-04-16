@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import toast from 'react-hot-toast';
 import { HeartIcon } from '@heroicons/react/24/solid';
 import placeHolder from '../public/placeholder-image.jpg';
 import { Link, useLocation } from 'react-router-dom';
@@ -17,6 +18,7 @@ function FilmCard({ props }) {
 
   const addItemToWishList = () => {
     dispatch(addToWishList(data));
+    toast.success('Film aggiunto :)');
   };
 
   const removeItemToWishList = () => {

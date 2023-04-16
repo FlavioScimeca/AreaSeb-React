@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import toast from 'react-hot-toast';
 import placeHolder from '../public/placeholder-image.jpg';
 import { HeartIcon, ArrowSmallLeftIcon } from '@heroicons/react/24/solid';
 import Header from '../components/header';
@@ -14,6 +15,7 @@ export default function Detail() {
   const dispatch = useDispatch();
 
   const addItemToWishList = () => {
+    toast.success('Film aggiunto :)');
     dispatch(addToWishList(info));
   };
 
