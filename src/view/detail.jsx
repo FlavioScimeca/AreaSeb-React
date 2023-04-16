@@ -14,7 +14,7 @@ export default function Detail() {
   const dispatch = useDispatch();
 
   const addItemToWishList = () => {
-    dispatch(addToWishList(JSON.stringify(info)));
+    dispatch(addToWishList(info));
   };
 
   useEffect(() => {

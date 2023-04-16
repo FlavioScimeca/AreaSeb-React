@@ -5,7 +5,9 @@ import FilmCard from '../components/filmCard';
 
 export default function WishList() {
   const { items } = useSelector((store) => store.wishCounter);
-
+  useEffect(() => {
+    console.log('rebderizzato');
+  }, [items]);
   return (
     <div>
       <Header />
@@ -16,7 +18,7 @@ export default function WishList() {
       ) : (
         <div className="mx-auto grid p-2 grid-cols-2 gap-2 md:grid-cols-3 md:max-w-3xl md:py-12">
           {items
-            .map((film) => JSON.parse(film))
+            // .map((film) => JSON.parse(film))
             .map((film, idx) => (
               <FilmCard key={idx} props={film} />
             ))}

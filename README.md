@@ -8,8 +8,11 @@
 - [x] Utilizzare React-router-dom
 - [x] Creare una pagina dettaglio del film
 - [x] Aggiungere Redux per lo state-management
-- [x] Possibilità di aggiungere/rimuovere uno o più film dalla wishlist
+- [x] Possibilità di aggiungere uno o più film dalla wishlist
+- [ ] Possibilità di rimuovere uno o più film dalla wishlist
+- [ ] Aggiungere un Toast message per una UX migliore
 
 ## EXTRA
 
 - [ ] Autenicazione con Google
+- [x] Deploy

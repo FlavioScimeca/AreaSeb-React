@@ -12,18 +12,20 @@ export const wishSlice = createSlice({
       state.items = [...state.items, action.payload];
     },
     removeToWishList: (state, action) => {
-      let index = state.items.findIndex(
-        (film) => film.id === action.payload.id
-      );
+      // let newWishList = state.items.map((film) => JSON.parse(film));
+      // console.log(newWishList);
+      let index = state.items.findIndex((film) => film.id == action.payload.id);
       let newWishList = [...state.items];
+
       if (index >= 0) {
         newWishList.splice(index, 1);
+        console.log(newWishList);
+        state.items = newWishList;
       } else {
         console.warn(
           `Il film (id: ${action.payload.id}) non può essere rimosso`
         );
       }
-      state.items = newWishList;
     },
   },
 });

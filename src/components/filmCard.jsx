@@ -9,17 +9,18 @@ import {
 import { useDispatch } from 'react-redux';
 
 function FilmCard({ props }) {
+  const { id } = props;
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState({});
   const dispatch = useDispatch();
   const { pathname } = useLocation();
 
-  const removeItemToWishList = () => {
-    dispatch(removeToWishList(JSON.stringify(data)));
+  const addItemToWishList = () => {
+    dispatch(addToWishList(data));
   };
 
-  const addItemToWishList = () => {
-    dispatch(addToWishList(JSON.stringify(data)));
+  const removeItemToWishList = () => {
+    dispatch(removeToWishList({ id }));
   };
 
   useEffect(() => {
