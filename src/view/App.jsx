@@ -27,7 +27,7 @@ function App() {
     <main>
       <Header />
 
-      <div className="grid p-2 grid-cols-2 gap-2">
+      <div className="mx-auto grid p-2 grid-cols-2 gap-2 md:grid-cols-3 md:max-w-3xl md:py-12">
         {films && films.map((film, idx) => <FilmCard key={idx} props={film} />)}
       </div>
     </main>

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import placeHolder from '../public/placeholder-image.jpg';
-import { HeartIcon } from '@heroicons/react/24/solid';
+import { HeartIcon, ArrowSmallLeftIcon } from '@heroicons/react/24/solid';
 import Header from '../components/header';
 import { useDispatch } from 'react-redux';
 import { addToWishList } from '../app/features/counter/wishSlice';
@@ -35,8 +35,8 @@ export default function Detail() {
   return (
     <>
       <Header />
-      <div>
-        <div className="m-5 p-2 shadow-sm rounded-md bg-gray-400 ">
+      <div className="h-screen flex justify-center items-center">
+        <div className="m-5 py-7 p-3 shadow-sm rounded-md bg-gray-400 w-[250px] ">
           <div className="relative h-48">
             <img
               className="absolute h-full w-full object-contain"
@@ -47,16 +47,23 @@ export default function Detail() {
           <p className="text-center text-lg font-medium line-clamp-1 my-2">
             {info.l}
           </p>
+          <p className="text-center text-lg font-medium mb-2">
+            Rank :<span>{info.rank}</span>
+          </p>
+          <p className="text-center text-lg font-medium mb-2">
+            Anno :<span>{info.y}</span>
+          </p>
           <div className="flex justify-evenly">
             <button
               onClick={() => navigate(-1)}
-              className=" p-1 px-2 rounded-md bg-yellow-200 text-center"
+              className="text-gray-700 tracking-wider font-semibold py-2 px-4 rounded-full bg-yellow-200 text-center flex justify-between"
             >
+              <ArrowSmallLeftIcon className="mt-[2px] mr-2 w-5 h-5" />
               back
             </button>
             <button
               onClick={() => addItemToWishList()}
-              className="p-1 px-2 rounded-md bg-red-600 text-center flex justify-between"
+              className="text-gray-300 tracking-wider font-semibold py-2 px-4 rounded-full bg-red-600 text-center flex justify-between"
             >
               Add
               <HeartIcon className="mt-[2px] ml-2 w-5 h-5" />
